@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">labb1_Colours</string>
+    <string name="red">Red:</string>
+    <string name="edit_text_red"></string>
+    <string name="green">Green:</string>
+    <string name="edit_text_green"></string>
+    <string name="blue">Blue:</string>
+    <string name="edit_text_blue"></string>
+    <string name="button_text">Display Color</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
