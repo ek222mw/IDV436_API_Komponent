@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">labb1_BMI</string>
+    <string name="bmi">bmi</string>
+    <string name="result"></string>
+    <string name="height">Length</string>
+    <string name="edit_text_Length"></string>
+    <string name="weight">Weight</string>
+    <string name="edit_text_Weight"></string>
+    <string name="button_text">Compute</string>
+    <string name="Reset">Reset</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">labb1_BMI</string>
+    <string name="edit_text_Length"></string>
+    <string name="edit_text_Weight"></string>
+    <string name="Button_text">Beräkna BMI</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

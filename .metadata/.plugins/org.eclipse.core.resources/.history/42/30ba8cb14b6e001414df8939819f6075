@@ -1,0 +1,60 @@
+package com.example.labb1_bmi;
+
+import android.app.Activity;
+
+
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        
+        setContentView(R.layout.activity_main);
+        
+        final Button button = (Button) findViewById(R.id.Button_Send);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	EditText et_Length = (EditText) findViewById(R.id.edit_text);
+            	EditText et_Weight = (EditText) findViewById(R.id.edit_text_Weight);
+            	
+            	TextView tv = (TextView) findViewById(R.id.result);
+            	Integer Length = Integer.valueOf(et_Length.getText().toString());
+            	Integer Weigth = Integer.valueOf(et_Weight.getText().toString());
+            	int bmi = Length * Length / Weigth;
+        		
+        		tv.setText(Integer.toString(bmi));
+        		
+            }
+        });
+        
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}

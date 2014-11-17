@@ -1,0 +1,20 @@
+package com.example.labb1;
+
+public class Random_activity {
+	
+	public Random_activity()
+	{
+		
+	}
+	
+	public int doRandom()
+	{
+		double d;
+		double randNumber = Math.random();
+		d = randNumber * 100;
+
+		int randomInt = (int)d + 1;
+		
+		return randomInt;
+	}
+}
