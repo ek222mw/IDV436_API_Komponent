@@ -1,0 +1,104 @@
+package com.example.labb1_countries;
+
+import android.content.Context;
+import android.database.DataSetObserver;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+
+public class MultiAdapter extends ArrayAdapter<String> {
+
+	public MultiAdapter(Context context) {
+		super(context, 0);
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	
+	@Override
+	public View getView(int position, View rowView,ViewGroup parent)
+	{
+		View row;
+		
+		if(rowView == null)
+		{
+			LayoutInflater inflater = getLayoutInflater();
+			row = inflater.inflate(R.layout.activity_main, parent,false);
+			
+		}
+		else
+		{
+			row = rowView;
+		}
+		
+		TextView country = (TextView)row.findViewById(R.id.country);
+		country.setText(COUNTRIES[position]);
+		
+		TextView id = (TextView)row.findViewById(R.id.id);
+		id.setText(ID[position]);
+		
+		TextView year = (TextView)row.findViewById(R.id.year);
+		year.setText(YEAR[position]);
+		
+		
+		
+		
+		
+	}
+
+	@Override
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
+
+	@Override
+	public long getItemId(int position) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean hasStableIds() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+
+	@Override
+	public int getItemViewType(int position) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getViewTypeCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean areAllItemsEnabled() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isEnabled(int position) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

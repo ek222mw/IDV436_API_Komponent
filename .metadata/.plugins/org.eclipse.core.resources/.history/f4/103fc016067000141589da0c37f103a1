@@ -1,0 +1,20 @@
+package com.example.labb1_countries;
+
+import java.util.ArrayList;
+
+public class DataHandler {
+
+private static ArrayList<String> arrayList;
+	
+	
+	public static ArrayList<String> GetArrayList(){
+		
+		return arrayList;
+	}
+	
+	public static void SetArrayList(ArrayList<String> array){
+		
+			arrayList = array;
+		
+	}
+}

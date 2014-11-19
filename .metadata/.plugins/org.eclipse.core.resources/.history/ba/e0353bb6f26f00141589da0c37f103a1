@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">labb1_countries</string>
+    <string name="addNewCountry">addNewCountry</string>
+    <string name="listview"></string>
+    <string name="id"></string>
+    <string name="country"></string>
+    <string name="year"></string>
+    <string name="add_button">Add Country</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

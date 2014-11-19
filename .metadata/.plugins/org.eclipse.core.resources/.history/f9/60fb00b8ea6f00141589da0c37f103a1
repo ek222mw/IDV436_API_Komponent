@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    
+   		<ListView 
+		    android:id="@+id/listView"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+        />
+    
+    	    <EditText android:id="@+id/addCountry_edit" 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:hint="Country"
+		/>
+	    
+	    <EditText android:id="@+id/addYear_edit" 
+        android:maxLength="4"
+        android:inputType="number"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:hint="Year"
+		/>
+	    
+	    <Button 
+        android:id="@+id/add_button"   
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        android:layout_gravity="center"
+       	android:text="@string/add" />
+    
+
+</LinearLayout>

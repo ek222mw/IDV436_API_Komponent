@@ -29,34 +29,19 @@ public class MainActivity extends Activity {
        // setContentView(R.layout.activity_main);
        
        
-       myOrientationEventListener
-       = new OrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL){
+	}
+	
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+	    super.onConfigurationChanged(newConfig);
 
-        @Override
-        public void onOrientationChanged(int arg0) {
-         // TODO Auto-generated method stub
-        	
-         
-        }};
-        
-          if (myOrientationEventListener.canDetectOrientation()){
-        	  setContentView(R.layout.activity_main);
-           myOrientationEventListener.enable();
-           
-          }
-          else{
-        	  setContentView(R.layout.activity_main);
-           finish();
-          }
-    
-       }
-       
-    @Override
-    protected void onDestroy() {
-     // TODO Auto-generated method stub
-     super.onDestroy();
-     myOrientationEventListener.disable();
-    }
+	    // Checks the orientation of the screen
+	    if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+	    	setContentView(R.layout.activity_main_land);
+	    } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+	    	setContentView(R.layout.activity_main);
+	    }
+	}
    
    
 
