@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+   
+    
+     <!-- MainActivity -->
+     <string name="app_name">labb1_All</string>
+     <string name="action_settings">Settings</string>
+    <string name="textViewTitleText">Laboration 1 Activities</string>
+    
+    
+    
+    
+    <!-- random -->
+    <string name="title_activity_random">Random</string>
+    <string name="random">Random</string>
+	<string name="randomInt"/>
+    
+    <!-- bmi -->
+    <string name="title_activity_bmi">BMI Calc</string>
+    <string name="bmi">BMI</string>
+	<string name="result"/>
+	<string name="height">Length</string>
+	<string name="edit_text_Length"/>
+	<string name="weight">Weight</string>
+	<string name="edit_text_Weight"/>
+	<string name="button_text">Compute</string>
+	<string name="Reset">Reset</string>
+	
+    <!-- colours -->
+    <string name="title_activity_colours">Colours</string>
+    <string name="result_colour"/>
+	<string name="red">Red:</string>
+	<string name="edit_text_red"/>
+	<string name="green">Green:</string>
+	<string name="edit_text_green"/>
+	<string name="blue">Blue:</string>
+	<string name="edit_text_blue"/>
+	<string name="button_text_colour">Display Color</string>
+	
+    <!-- countries -->
+    <string name="title_activity_countries">Countries</string>
+    <string name="addNewCountry">Add Country</string>
+    <string name="GoToList">GoToList</string>
+    <string name="country"></string>
+    <string name="year"></string>
+    <string name="add_button">Add Country</string>
+    
+    
+    <!-- weather -->
+	<string name="title_activity_weather">Weather Växjö</string>
+	
+	
+
+</resources>
