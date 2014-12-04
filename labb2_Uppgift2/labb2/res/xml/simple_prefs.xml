@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory
+		android:title="First Category"
+        android:textSize="10sp"
+        android:layout="@layout/activity_persitent_storage__countries">
+	</PreferenceCategory>
+</PreferenceScreen>
