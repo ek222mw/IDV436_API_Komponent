@@ -1,0 +1,52 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.labb2.PersitentStorage_Countries" >
+
+        <item 
+        android:id="@+id/menu"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="@string/menu" >
+        <menu >
+   
+           
+     <item android:id="@+id/action_add"
+         android:orderInCategory="110"
+         android:showAsAction="never"
+          android:title="@string/addNewCountry"
+           
+          />
+      <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="112"
+        android:showAsAction="always"
+        android:title="@string/action_settings"/>
+        <item 
+        android:id="@+id/order_by_year"
+        android:orderInCategory="113"
+        android:showAsAction="never"
+        android:title="@string/order_by_year_ASC" />
+      <item 
+        android:id="@+id/order_by_year_DESC"
+        android:orderInCategory="120"
+       android:showAsAction="never"
+        android:title="@string/order_by_year_DESC" />
+    
+    <item 
+        android:id="@+id/order_by_name"
+        android:orderInCategory="121"
+       android:showAsAction="never"
+        android:title="@string/order_by_name_ASC" />
+     <item 
+        android:id="@+id/order_by_name_DESC"
+        android:orderInCategory="130"
+        android:showAsAction="never"
+        android:title="@string/order_by_name_DESC" />
+     </menu>
+     </item>
+     
+    
+     
+    
+
+</menu>
