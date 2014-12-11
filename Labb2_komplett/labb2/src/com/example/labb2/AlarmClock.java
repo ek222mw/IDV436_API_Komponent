@@ -56,6 +56,8 @@ public class AlarmClock extends Activity {
 		
 		m_timePicker = (TimePicker) findViewById(R.id.timePicker);
 		m_timePicker.setIs24HourView(true);			
+	
+		m_timePicker.setCurrentHour(Calendar.getInstance().get(Calendar.HOUR_OF_DAY));
 
 		Timer timer = new Timer();
 		TimerTask timerTask = new TimerTask() {
@@ -71,17 +73,11 @@ public class AlarmClock extends Activity {
 	public void onClick(View view) {
 		switch (view.getId()) {
 	        case R.id.buttonSetAlarm:
-	        	
 	        	AlarmSet();
-	    		break;
-	        
-		}
-		
-		
+	    		break;  
+		}	
     }
-	
-	
-	
+
 	// Displays the current time on display.
 	public static void showCurrentTime() {
 		final Calendar m_calendar = Calendar.getInstance();
@@ -122,9 +118,7 @@ public class AlarmClock extends Activity {
         
 		long m_time = m_Calendar.getTimeInMillis();
 		Date alarmDate = m_Calendar.getTime();		
-		
-		
-		
+
 		
 		if(alarmDate.after(m_TimeNow)) {
 			
@@ -139,8 +133,6 @@ public class AlarmClock extends Activity {
 		} 
 		else if(m_TimeNow.equals(alarmDate) || m_TimeNow.after(alarmDate)) {
 			//If time has passed, set alarm the next day instead.
-			
-			
 			m_Calendar.add(Calendar.DATE, 1);//add one day to the calendar
 			m_time = m_Calendar.getTimeInMillis();
 		
