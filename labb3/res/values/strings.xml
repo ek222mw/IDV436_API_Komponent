@@ -5,6 +5,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_calls">IncomingCalls</string>
-     <string name="NoTelephony">No Telephony Available!</string>
+    <string name="NoTelephony">No Telephony Available!</string>
+    <string name="title_activity_main_citymap">MainCitymap</string>
 
 </resources>

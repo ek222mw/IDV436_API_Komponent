@@ -47,7 +47,7 @@ public class MainActivity extends ListActivity {
     }
     private void setup_activities(){
     	addActivity("Exercise 2 Call History", IncomeCallMain.class);
-    	//addActivity("Exercise 3 City Map", MainCityMap.class);
+    	addActivity("Exercise 3 City Map", MainCitymap.class);
     }
     private void addActivity(String name, Class activity){
     	activities.add(name);
