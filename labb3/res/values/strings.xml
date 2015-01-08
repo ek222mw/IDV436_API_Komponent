@@ -7,5 +7,7 @@
     <string name="title_calls">IncomingCalls</string>
     <string name="NoTelephony">No Telephony Available!</string>
     <string name="title_activity_main_citymap">MainCitymap</string>
+     <string name="marker_title">Växjö</string>
+    <string name="marker_description">The most rainy town in Sweden</string>
 
 </resources>
