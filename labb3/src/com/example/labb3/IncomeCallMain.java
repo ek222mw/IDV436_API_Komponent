@@ -28,9 +28,10 @@ import android.widget.Toast;
 
 public class IncomeCallMain extends ListActivity {
 	private IncomeCallsDataSource m_callsDatasource;
+	private ArrayAdapter<String> m_adapter;
 	private List m_callList;
 	private ListView m_numberList;
-	private ArrayAdapter<String> m_adapter;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,8 +39,8 @@ public class IncomeCallMain extends ListActivity {
 		if(TelephoneCheck()){
 			GetCallList();
 		}else{
-			TextView noTelephony = (TextView)findViewById(R.id.textView1);
-			noTelephony.setVisibility(View.VISIBLE);
+			TextView m_Telephonynotavb = (TextView)findViewById(R.id.tv);
+			m_Telephonynotavb.setVisibility(View.VISIBLE);
 		}
 	}
 	
@@ -50,7 +51,7 @@ public class IncomeCallMain extends ListActivity {
 		m_callList = m_callsDatasource.GetAllCallNumbers();
 		m_adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,m_callList);
 		
-		m_numberList = (ListView)findViewById(R.id.number_list);
+		m_numberList = (ListView)findViewById(R.id.list_nbr);
 		m_numberList.setAdapter(m_adapter);
 		
 		registerForContextMenu(m_numberList);
@@ -58,11 +59,11 @@ public class IncomeCallMain extends ListActivity {
 	 @Override  
     public void onCreateContextMenu(ContextMenu menu, View v,ContextMenuInfo menuInfo) {  
     	super.onCreateContextMenu(menu, v, menuInfo);  
-    	if (v.getId()==R.id.number_list) {
+    	if (v.getId()==R.id.list_nbr) {
     		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
     		menu.setHeaderTitle(m_callList.get(info.position).toString());
-    		menu.add(0, 0, 0, "Call");
-    		menu.add(0, 1, 0, "Message");
+    		menu.add(0, 0, 0, "TextMessage");
+    		menu.add(0, 1, 0, "Call");
 	    }
     }
 	 @Override
@@ -70,57 +71,51 @@ public class IncomeCallMain extends ListActivity {
       AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
       if (item.getItemId() == 0) 
       { 
-    	  //phonecall
-    	  String m_str = m_callList.get(info.position).toString();
-    	  String m_toCall="tel:"+m_str;
-    	  startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(m_toCall)));
-      }else if(item.getItemId() == 1)
-      {
     	  
     	  //sms
-    	  	String m_str = m_callList.get(info.position).toString();
-        	Intent m_Intent =new Intent(Intent.ACTION_SEND);
-        	m_Intent.setType("text/plain");
-        	m_Intent.putExtra(Intent.EXTRA_TEXT, m_str);
-        	m_Intent.putExtra(Intent.EXTRA_PHONE_NUMBER,m_str);
-        	m_Intent.putExtra("sms_body", m_str);
-        	startActivity(Intent.createChooser(m_Intent, "Share"));
+  	  	String m_str = m_callList.get(info.position).toString();
+      	Intent m_Intent =new Intent(Intent.ACTION_SEND);
+      	m_Intent.setType("text/plain");
+      	m_Intent.putExtra(Intent.EXTRA_TEXT, m_str);
+      	m_Intent.putExtra(Intent.EXTRA_PHONE_NUMBER,m_str);
+      	m_Intent.putExtra("sms_body", m_str);
+      	startActivity(Intent.createChooser(m_Intent, "Share"));
+    	 
+      }else if(item.getItemId() == 1)
+      {
+   
+        	 //phonecall
+      	  String m_str = m_callList.get(info.position).toString();
+      	  String m_toCall="tel:"+m_str;
+      	  startActivity(new Intent(Intent.ACTION_CALL, Uri.parse(m_toCall)));
       }
       return true;
     }
-	private class ItemClick implements OnItemClickListener {
-        @Override
-		public void onItemClick(AdapterView<?> parent, View view,int position, long id) 
-        {
-        	CharSequence m_charSeq = ((TextView) view).getText(); 
-        	Intent m_Intent = new Intent(Intent.ACTION_SEND);
-        	m_Intent.setType("text/plain");
-        	m_Intent.putExtra(Intent.EXTRA_TEXT, m_charSeq);
-        	m_Intent.putExtra(Intent.EXTRA_PHONE_NUMBER,m_charSeq);
-        	m_Intent.putExtra("sms_body", m_charSeq);
-        	startActivity(Intent.createChooser(m_Intent, "Share"));
-       }
-    }
 	
-	private boolean TelephoneCheck(){
-		PackageManager pm = getPackageManager();
-		boolean telephonySupported =
-		pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
-		boolean gsmSupported =
-		pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY_CDMA);
-		boolean cdmaSupported =
-		pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY_GSM);
-		if(telephonySupported || cdmaSupported || gsmSupported){
-			return true;
-		}
-		return false;
-	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.menu_calls, menu);
 		return true;
+	}
+	
+	
+	private boolean TelephoneCheck(){
+		PackageManager pm = getPackageManager();
+		
+		boolean m_cdmaSupp =
+				pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY_GSM);
+		
+		boolean m_gsmSupp =
+		pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY_CDMA);
+		
+		boolean m_telephoneSupp =
+				pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
+		if(m_gsmSupp || m_telephoneSupp || m_cdmaSupp  ){
+			return true;
+		}
+		return false;
 	}
 
 	@Override
@@ -134,4 +129,18 @@ public class IncomeCallMain extends ListActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	private class ItemClick implements OnItemClickListener {
+        @Override
+		public void onItemClick(AdapterView<?> parent, View view,int position, long id) 
+        {
+        	CharSequence m_charSeq = ((TextView) view).getText(); 
+        	Intent m_Intent = new Intent(Intent.ACTION_SEND);
+        	m_Intent.setType("text/plain");
+        	m_Intent.putExtra(Intent.EXTRA_TEXT, m_charSeq);
+        	m_Intent.putExtra(Intent.EXTRA_PHONE_NUMBER,m_charSeq);
+        	m_Intent.putExtra("sms_body", m_charSeq);
+        	startActivity(Intent.createChooser(m_Intent, "Share"));
+       }
+    }
 }

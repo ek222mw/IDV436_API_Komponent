@@ -16,12 +16,15 @@ public class IncomeCallsReceiver extends BroadcastReceiver {
 	
 	@Override
 	public void onReceive(Context a_context, Intent a_intent) {
+		
+		m_Callsdatasource = new IncomeCallsDataSource(a_context);
+		m_Callsdatasource.open();
+		
 		Bundle m_bundle = a_intent.getExtras();
 		if(null == m_bundle){
 			return;
 		}
-		m_Callsdatasource = new IncomeCallsDataSource(a_context);
-		m_Callsdatasource.open();
+		
 		String m_state = m_bundle.getString(TelephonyManager.EXTRA_STATE);
 		if(m_state.equalsIgnoreCase(TelephonyManager.EXTRA_STATE_RINGING)){	
 			
@@ -29,6 +32,7 @@ public class IncomeCallsReceiver extends BroadcastReceiver {
 		        m_callStateLstr = new CallStateListr();
 		        m_telephonemangr.listen(m_callStateLstr, PhoneStateListener.LISTEN_CALL_STATE);
 		}
+
 	}
 	  public class CallStateListr extends PhoneStateListener {
 		  	@Override
@@ -37,14 +41,13 @@ public class IncomeCallsReceiver extends BroadcastReceiver {
 		  		if( a_incomingNumber != null){
 		  			switch (a_state) {
 			            case TelephonyManager.CALL_STATE_RINGING:
-			            	
 			            	m_telephonemangr.listen(m_callStateLstr, PhoneStateListener.LISTEN_NONE);
 			            	m_Callsdatasource.createNewNumber(a_incomingNumber);
 			                break;
-			            case TelephonyManager.CALL_STATE_OFFHOOK:
-			                 break;
-			            case TelephonyManager.CALL_STATE_IDLE:
-			                break;
+				  		case TelephonyManager.CALL_STATE_OFFHOOK:
+				            break;
+				  		case TelephonyManager.CALL_STATE_IDLE:
+				            break;
 			            default:
 			            	break;
 		  			}

@@ -480,19 +480,19 @@ containing a value of this type.
         public static final int holo_light=0x7f0b0008;
         public static final int hybrid=0x7f0b0003;
         public static final int icon=0x7f0b001b;
+        public static final int list_nbr=0x7f0b0017;
         public static final int map=0x7f0b001a;
         public static final int match_parent=0x7f0b000e;
         public static final int monochrome=0x7f0b0016;
         public static final int none=0x7f0b0002;
         public static final int normal=0x7f0b0004;
-        public static final int number_list=0x7f0b0017;
         public static final int production=0x7f0b0009;
         public static final int sandbox=0x7f0b000a;
         public static final int satellite=0x7f0b0005;
         public static final int selectionDetails=0x7f0b000d;
         public static final int strict_sandbox=0x7f0b000b;
         public static final int terrain=0x7f0b0006;
-        public static final int textView1=0x7f0b0018;
+        public static final int tv=0x7f0b0018;
         public static final int wrap_content=0x7f0b000f;
     }
     public static final class integer {
@@ -512,7 +512,7 @@ containing a value of this type.
         public static final int gtm_analytics=0x7f040000;
     }
     public static final class string {
-        public static final int NoTelephony=0x7f060027;
+        public static final int NoTelephone=0x7f060027;
         public static final int accept=0x7f060002;
         public static final int action_settings=0x7f060025;
         public static final int app_name=0x7f060023;
@@ -619,8 +619,6 @@ containing a value of this type.
         public static final int create_calendar_title=0x7f060004;
         public static final int decline=0x7f060003;
         public static final int hello_world=0x7f060024;
-        public static final int marker_description=0x7f06002a;
-        public static final int marker_title=0x7f060029;
         public static final int store_picture_message=0x7f060001;
         public static final int store_picture_title=0x7f060000;
         public static final int title_activity_main_citymap=0x7f060028;

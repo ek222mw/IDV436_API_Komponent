@@ -7,26 +7,36 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FFFFCC"
     tools:context="com.example.labb3.IncomeCallMain"
      >
     
      <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge" >
     </ListView>
-     <ListView
-        android:id="@+id/number_list"
+    
+      <ListView
+        android:id="@+id/list_nbr"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content" 
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        >
+        
     </ListView>
-
-     <TextView
-         android:id="@+id/textView1"
+     
+      <TextView
+         android:id="@+id/tv"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:text="@string/NoTelephony" 
+         android:text="@string/NoTelephone" 
          android:visibility="invisible"/>
+     
+    
+
+    
     
 
 </RelativeLayout>

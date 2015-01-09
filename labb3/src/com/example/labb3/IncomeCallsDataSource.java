@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 public class IncomeCallsDataSource {
 
 	
-	private String[] m_Columns = {IncomeCallsDbHelper.COLUMN_ID,IncomeCallsDbHelper.COLUMN_NUMBER};
+	private String[] m_Columns = {IncomeCallsDbHelper.COLUMN_ID,IncomeCallsDbHelper.COLUMN_CALLEDNUMBER};
 	private SQLiteDatabase m_database;
 	
 	private IncomeCallsDbHelper m_IncomeCallDbHelper;
@@ -30,29 +30,23 @@ public class IncomeCallsDataSource {
 	}
 	
 	//remove db during devolopment
-		public void RemoveDataFromTable(){
-			m_database.delete(IncomeCallsDbHelper.CALLS_TABLE_NAME, null, null);
-		}
+	public void RemoveDataFromTable(){
+		m_database.delete(IncomeCallsDbHelper.CALLS_TABLE_NAME, null, null);
+	}
+	
+		
 	
 	public IncomeCalls createNewNumber(String a_number){
 		ContentValues m_values = new ContentValues();
-		m_values.put(IncomeCallsDbHelper.COLUMN_NUMBER, a_number);
+		m_values.put(IncomeCallsDbHelper.COLUMN_CALLEDNUMBER, a_number);
 		long m_newId = m_database.insert(IncomeCallsDbHelper.CALLS_TABLE_NAME, null, m_values);
 		Cursor m_cursor = m_database.query(IncomeCallsDbHelper.CALLS_TABLE_NAME,m_Columns, 
 						IncomeCallsDbHelper.COLUMN_ID + " = " + m_newId, null,null,null,null);
 		m_cursor.moveToFirst();
-		IncomeCalls newCalls = cursorDoCalls(m_cursor);
+		IncomeCalls m_newCalls = cursorDoCalls(m_cursor);
 		m_cursor.close();
-		return newCalls;
+		return m_newCalls;
 		
-	}
-	
-
-	private IncomeCalls cursorDoCalls(Cursor a_cursor){
-		IncomeCalls m_call = new IncomeCalls();
-		m_call.setId(a_cursor.getLong(0));
-		m_call.setNumber(a_cursor.getString(1));
-		return m_call;
 	}
 	
 	public List<IncomeCalls> GetAllCallNumbers(){
@@ -67,6 +61,14 @@ public class IncomeCallsDataSource {
 		}
 		m_cursor.close();
 		return m_calls;
+	}
+	
+
+	private IncomeCalls cursorDoCalls(Cursor a_cursor){
+		IncomeCalls m_call = new IncomeCalls();
+		m_call.setId(a_cursor.getLong(0));
+		m_call.setNumber(a_cursor.getString(1));
+		return m_call;
 	}
 
 	
